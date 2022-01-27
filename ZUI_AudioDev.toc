@@ -1,0 +1,7 @@
+## Interface: 11401
+## Title: ZUI_AudioDev
+## Author: ZUI
+## DefaultState: enabled
+## SavedVariables: ZUI_Audio
+
+Core.lua
