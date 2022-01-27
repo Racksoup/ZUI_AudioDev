@@ -20,12 +20,6 @@ function Config:CreateButton(point, relativeFrame, relativePoint, yOffset, width
     return btn;
 end
 
-function MyScrollBar_Update()
-    FauxScrollFrame_Update(UIConfig.MyScrollBar,50,5,16);
-      -- 50 is max entries, 5 is number of lines, 16 is pixel height of each line
-      DEFAULT_CHAT_FRAME:AddMessage("We're at "..FauxScrollFrame_GetOffset(UIConfig.MyScrollBar));
-  end
-
 -------------Frames--------------
 local UIConfig = CreateFrame("Frame", "ZUIAudioFrame", UIParent, "BasicFrameTemplateWithInset");
 UIConfig:SetSize(300, 420); -- width, height
