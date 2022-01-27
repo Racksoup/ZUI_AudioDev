@@ -8,7 +8,7 @@ local UIConfig;
 
 -----------Functions-------------
 function Config:CreateButton(point, relativeFrame, relativePoint, yOffset, width, text, soundFile)
-    local btn = CreateFrame("Button", nil, relativeFrame, "GameMenuButtonTemplate");
+    local btn = CreateFrame("Button", nil, relativeFrame, "InlineHyperlinkFrameTemplate");
     btn:SetPoint(point, relativeFrame, relativePoint, 0, yOffset);
     btn:SetSize(width, 40);
     btn:SetText(text);
@@ -44,18 +44,15 @@ UIConfig.MyScrollBar:SetScrollChild(UIConfig.scrollChild);
 UIConfig.scrollChild:SetWidth(200);
 UIConfig.scrollChild:SetHeight(1);
 
-local title = UIConfig.scrollChild:CreateFontString("ARTWORK", nil, "GameFontNormalLarge")
-title:SetPoint("TOP")
-title:SetText("MyAddOn")
-
-local footer = UIConfig.scrollChild:CreateFontString("ARTWORK", nil, "GameFontNormal")
-footer:SetPoint("TOP", 0, -5000)
-footer:SetText("This is 5000 below the top, so the scrollChild automatically expanded.")
-
-UIConfig.murlocBtn = Config:CreateButton("CENTER", UIConfig.MyScrollBar, "TOP", -70, 140, "Murlocs", "sound/creature/murloc/mmurlocaggroold.ogg");
+UIConfig.murlocBtn = Config:CreateButton("CENTER", UIConfig.scrollChild, "TOP", -70, 140, "Murlocs", "sound/creature/murloc/mmurlocaggroold.ogg");
 UIConfig.dieingManBtn = Config:CreateButton("CENTER", UIConfig.murlocBtn, "TOP", -70, 140, "DieingMan", "sound/character/playerexertions/humanmalefinal/humanmalemaindeatha.ogg");
 UIConfig.flagTakenBtn = Config:CreateButton("CENTER", UIConfig.dieingManBtn, "TOP", -70, 180, "Flag Taken", "sound/spells/pvpflagtaken.ogg");
 UIConfig.Zelda = Config:CreateButton("CENTER", UIConfig.flagTakenBtn, "TOP", -70, 140, "ZELDA!", "Interface/AddOns/ZUI_AudioDev/Sounds/TheLegendaryHero-WindWaker.ogg");
+UIConfig.Zelda2 = Config:CreateButton("CENTER", UIConfig.Zelda, "TOP", -70, 140, "ZANT", "Interface/AddOns/ZUI_AudioDev/Sounds/ZantBattle-TwilightPrincess.ogg");
+UIConfig.Zelda3 = Config:CreateButton("CENTER", UIConfig.Zelda2, "TOP", -70, 140, "ZELDA!", "Interface/AddOns/ZUI_AudioDev/Sounds/TheLegendaryHero-WindWaker.ogg");
+UIConfig.Zelda4 = Config:CreateButton("CENTER", UIConfig.Zelda3, "TOP", -70, 140, "ZELDA!", "Interface/AddOns/ZUI_AudioDev/Sounds/TheLegendaryHero-WindWaker.ogg");
+UIConfig.Zelda5 = Config:CreateButton("CENTER", UIConfig.Zelda4, "TOP", -70, 140, "ZELDA!", "Interface/AddOns/ZUI_AudioDev/Sounds/TheLegendaryHero-WindWaker.ogg");
+UIConfig.dieingManBtn2 = Config:CreateButton("CENTER", UIConfig.Zelda5, "TOP", -70, 140, "DieingMan", "sound/character/playerexertions/humanmalefinal/humanmalemaindeatha.ogg");
 
 
 
