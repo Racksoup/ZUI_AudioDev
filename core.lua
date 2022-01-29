@@ -1,18 +1,16 @@
 -----------Namespaces------------
 local _, core = ...;
 core.Config = {};
-
 local Config;
 local UIConfig;
-
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0")
 local L = AceLocale:NewLocale("ZUI_Audio_Dev", "enUS", true)
 
 ---------MiniMapIcon-------------
-local Config = LibStub("AceAddon-3.0"):NewAddon("Bunnies", "AceConsole-3.0");
-local bunnyLDB = LibStub("LibDataBroker-1.1"):NewDataObject("Bunnies!", {
+local Config = LibStub("AceAddon-3.0"):NewAddon("ZUI_Audio_Dev", "AceConsole-3.0");
+local ZUI_LDB = LibStub("LibDataBroker-1.1"):NewDataObject("ZUI_Audio_Dev!", {
     type = "data source",
-    text = "Bunnies!",
+    text = "ZUI_Audio_Dev!",
     icon = GetItemIcon(5045),
     OnClick = function() 
         if (UIConfig.showing == true)
@@ -23,18 +21,18 @@ local bunnyLDB = LibStub("LibDataBroker-1.1"):NewDataObject("Bunnies!", {
             UIConfig:Show();
             UIConfig.showing = true;
         end
-    end,});
+    end,
+    OnTooltipShow = function(tooltip)
+        tooltip:SetText("ZUI Audio Dev")
+    end,
+    });
 local icon = LibStub("LibDBIcon-1.0");
 
 -----------Functions-------------
 function Config:OnInitialize() -- Obviously you'll need a ## SavedVariables: BunniesDB line in your TOC, duh! 
-    self.db = LibStub("AceDB-3.0"):New("BunniesDB", { profile = { minimap = { hide = false, }, }, }) 
-    icon:Register("Bunnies!", bunnyLDB, self.db.profile.minimap) 
-    self:RegisterChatCommand("bunnies", "CommandTheBunnies") 
+    self.db = LibStub("AceDB-3.0"):New("ZUIAudioDevDB", { profile = { minimap = { hide = false, }, }, }) 
+    icon:Register("ZUI_Audio_Dev", ZUI_LDB, self.db.profile.minimap) 
 end
-
-function Config:CommandTheBunnies() 
-    self.db.profile.minimap.hide = not self.db.profile.minimap.hide if self.db.profile.minimap.hide then icon:Hide("Bunnies!") else icon:Show("Bunnies!") end end 
 
 function Config:CreateButton(point, relativeFrame, relativePoint, yOffset, width, text, soundFile)
     local btn = CreateFrame("Button", nil, relativeFrame, "InlineHyperlinkFrameTemplate");
