@@ -2,22 +2,31 @@
 local _, core = ...;
 core.Config = {};
 
-local Config 
+local Config;
 local UIConfig;
 
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0")
 local L = AceLocale:NewLocale("ZUI_Audio_Dev", "enUS", true)
 
 ---------MiniMapIcon-------------
-local Config = LibStub("AceAddon-3.0"):NewAddon("Bunnies", "AceConsole-3.0")
+local Config = LibStub("AceAddon-3.0"):NewAddon("Bunnies", "AceConsole-3.0");
 local bunnyLDB = LibStub("LibDataBroker-1.1"):NewDataObject("Bunnies!", {
-type = "data source",
-text = "Bunnies!",
-icon = "Interface\Icons\INV_Chest_Cloth_17",
-OnClick = function() print("BUNNIES ARE TAKING OVER THE WORLD") 
-end,})
-local icon = LibStub("LibDBIcon-1.0")
+    type = "data source",
+    text = "Bunnies!",
+    icon = GetItemIcon(5045),
+    OnClick = function() 
+        if (UIConfig.showing == true)
+        then
+            UIConfig:Hide(); 
+            UIConfig.showing = false;
+        else 
+            UIConfig:Show();
+            UIConfig.showing = true;
+        end
+    end,});
+local icon = LibStub("LibDBIcon-1.0");
 
+-----------Functions-------------
 function Config:OnInitialize() -- Obviously you'll need a ## SavedVariables: BunniesDB line in your TOC, duh! 
     self.db = LibStub("AceDB-3.0"):New("BunniesDB", { profile = { minimap = { hide = false, }, }, }) 
     icon:Register("Bunnies!", bunnyLDB, self.db.profile.minimap) 
@@ -27,8 +36,6 @@ end
 function Config:CommandTheBunnies() 
     self.db.profile.minimap.hide = not self.db.profile.minimap.hide if self.db.profile.minimap.hide then icon:Hide("Bunnies!") else icon:Show("Bunnies!") end end 
 
-
------------Functions-------------
 function Config:CreateButton(point, relativeFrame, relativePoint, yOffset, width, text, soundFile)
     local btn = CreateFrame("Button", nil, relativeFrame, "InlineHyperlinkFrameTemplate");
     btn:SetPoint(point, relativeFrame, relativePoint, 0, yOffset);
@@ -43,7 +50,7 @@ function Config:CreateButton(point, relativeFrame, relativePoint, yOffset, width
 end
 
 -------------Frames--------------
-local UIConfig = CreateFrame("Frame", "ZUIAudioFrame", UIParent, "BasicFrameTemplateWithInset");
+UIConfig = CreateFrame("Frame", "ZUIAudioFrame", UIParent, "BasicFrameTemplateWithInset");
 UIConfig:SetSize(300, 420); -- width, height
 UIConfig:SetPoint("CENTER");
 UIConfig:SetMovable(true);
@@ -51,6 +58,8 @@ UIConfig:EnableMouse(true);
 UIConfig:RegisterForDrag("LeftButton");
 UIConfig:SetScript("OnDragStart", UIConfig.StartMoving);
 UIConfig:SetScript("OnDragStop", UIConfig.StopMovingOrSizing);
+
+UIConfig.showing = true;
 
 UIConfig.title = UIConfig:CreateFontString(nil, "OVERLAY");
 UIConfig.title:SetFontObject("GameFontHighlight");
@@ -95,7 +104,6 @@ UIConfig.KA_21 = Config:CreateButton("CENTER", UIConfig.KA_20, "TOP", -28, 140, 
 UIConfig.KA_22 = Config:CreateButton("CENTER", UIConfig.KA_21, "TOP", -28, 140, "Karazhan - Hour5", "Interface/AddOns/ZUI_AudioDev/Sounds/Karazhan/MUS_71_Karazhan_5H.ogg");
 UIConfig.KA_23 = Config:CreateButton("CENTER", UIConfig.KA_22, "TOP", -28, 140, "Karazhan - Vortex", "Interface/AddOns/ZUI_AudioDev/Sounds/Karazhan/MUS_71_Karazhan_Vortex_01.ogg");
 UIConfig.IntroTheme = Config:CreateButton("CENTER", UIConfig.KA_23, "TOP", -28, 140, "WoW Intro Theme", 47598);
-
 
 
 
