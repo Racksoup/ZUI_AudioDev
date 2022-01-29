@@ -13,4 +13,5 @@ libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
 libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
 libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
 libs\AceGUI-3.0\AceGUI-3.0.xml
+Classic.lua
 Core.lua

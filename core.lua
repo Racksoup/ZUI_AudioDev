@@ -1,6 +1,5 @@
 -----------Namespaces------------
-local _, core = ...;
-core.Config = {};
+
 local Config;
 local UIConfig;
 local AceLocale = LibStub:GetLibrary("AceLocale-3.0")
@@ -66,14 +65,14 @@ UIConfig.title:SetText("ZUI Audio Dev");
 
 UIConfig.MyScrollFrame = CreateFrame("ScrollFrame", "ZUIAudioMyScrollFrame", UIConfig, "UIPanelScrollFrameTemplate");
 UIConfig.MyScrollFrame:SetPoint("TOPLEFT", "ZUIAudioFrame", "TOPLEFT", 20, -30);
-UIConfig.MyScrollFrame:SetPoint("BOTTOMRIGHT", "ZUIAudioFrame", "BOTTOMRIGHT", -34, 10);
+UIConfig.MyScrollFrame:SetPoint("BOTTOMRIGHT", "ZUIAudioFrame", "BOTTOMRIGHT", -34, 8);
 
 UIConfig.scrollChild = CreateFrame("Frame", "ScrollChild", UIConfig.MyScrollFrame);
 UIConfig.MyScrollFrame:SetScrollChild(UIConfig.scrollChild);
 UIConfig.scrollChild:SetWidth(260);
 UIConfig.scrollChild:SetHeight(1000);
 
-UIConfig.murlocBtn = Config:CreateButton("CENTER", UIConfig.scrollChild, "TOP", -28, 140, "Murlocs", "sound/creature/murloc/mmurlocaggroold.ogg");
+UIConfig.murlocBtn = Config:CreateButton("CENTER", UIConfig.scrollChild, "TOP", -10, 140, "Murlocs", "sound/creature/murloc/mmurlocaggroold.ogg");
 UIConfig.dieingManBtn = Config:CreateButton("CENTER", UIConfig.murlocBtn, "TOP", -28, 140, "DieingMan", "sound/character/playerexertions/humanmalefinal/humanmalemaindeatha.ogg");
 UIConfig.flagTakenBtn = Config:CreateButton("CENTER", UIConfig.dieingManBtn, "TOP", -28, 180, "Flag Taken", "sound/spells/pvpflagtaken.ogg");
 UIConfig.Zelda = Config:CreateButton("CENTER", UIConfig.flagTakenBtn, "TOP", -28, 140, "ZELDA!", "Interface/AddOns/ZUI_AudioDev/Sounds/TheLegendaryHero-WindWaker.ogg");
@@ -102,10 +101,6 @@ UIConfig.KA_21 = Config:CreateButton("CENTER", UIConfig.KA_20, "TOP", -28, 140, 
 UIConfig.KA_22 = Config:CreateButton("CENTER", UIConfig.KA_21, "TOP", -28, 140, "Karazhan - Hour5", "Interface/AddOns/ZUI_AudioDev/Sounds/Karazhan/MUS_71_Karazhan_5H.ogg");
 UIConfig.KA_23 = Config:CreateButton("CENTER", UIConfig.KA_22, "TOP", -28, 140, "Karazhan - Vortex", "Interface/AddOns/ZUI_AudioDev/Sounds/Karazhan/MUS_71_Karazhan_Vortex_01.ogg");
 UIConfig.IntroTheme = Config:CreateButton("CENTER", UIConfig.KA_23, "TOP", -28, 140, "WoW Intro Theme", 47598);
-
-
-
-
 
 
 
