@@ -33,7 +33,7 @@ end
 function ZUI_AudioDev:CreateButton(point, relativeFrame, relativePoint, yOffset, width, text, soundFile)
     local btn = CreateFrame("Button", nil, relativeFrame, "InlineHyperlinkFrameTemplate");
     btn:SetPoint(point, relativeFrame, relativePoint, 0, yOffset);
-    btn:SetSize(width, 10);
+    btn:SetSize(250, 10);
     btn:SetText(text);
     btn:SetNormalFontObject("GameFontNormalLarge");
     btn:SetHighlightFontObject("GameFontHighlightLarge");
