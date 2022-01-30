@@ -1,6 +1,6 @@
 ﻿--Created by PlaylistCreator version 4.0
-local EpicMusicPlayer = LibStub("AceAddon-3.0"):GetAddon("EpicMusicPlayer")
-if not EpicMusicPlayer then return end
+local ZUI_AudioDev = LibStub("AceAddon-3.0"):GetAddon("ZUI_AudioDev")
+if not ZUI_AudioDev then return end
 
 local playlist1 = {
 	["listName"] = "Classic",
@@ -1944,4 +1944,4 @@ local playlist1 = {
 		["WoW"] =  "true",
 	},	
 }
-EpicMusicPlayer:AddPlayList("Classic", playlist1, false, true)
+ZUI_AudioDev:AddPlayList("Classic", playlist1)
