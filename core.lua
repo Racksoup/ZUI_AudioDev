@@ -21,7 +21,7 @@ local ZUI_LDB = LibStub("LibDataBroker-1.1"):NewDataObject("ZUI_AudioDev!", {
     OnTooltipShow = function(tooltip)
         tooltip:SetText("ZUI Audio Dev")
     end,
-    });
+});
 local icon = LibStub("LibDBIcon-1.0");
 
 -----------Functions-------------
