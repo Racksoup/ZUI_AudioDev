@@ -64,3 +64,4 @@ for i, song in ipairs(ZUI_AudioDev.list) do
     end
     table.insert(UIConfig.Buttons, Abtn);
 end
+UIConfig:Hide()
