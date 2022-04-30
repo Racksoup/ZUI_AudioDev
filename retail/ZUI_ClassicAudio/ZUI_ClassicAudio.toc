@@ -1,0 +1,11 @@
+## Interface: 90200
+## Title: ZUI_ClassicAudio
+## Author: ZUI
+## DefaultState: disabled
+## SavedVariables: ZUI_ClassicAudioDB
+
+embeds.xml
+
+core.lua
+Classic.lua
+UIcore.lua
